@@ -1,0 +1,52 @@
+table {
+    border-collapse: collapse;
+    width: 60%;
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+h2 {
+    background: #900;
+    color: #FFF;
+    padding: 12px;
+}
+
+form {
+    padding: 10px;
+    border: none;
+    border-bottom: 2px solid #ddd;
+    border-radius: 0;
+    outline: none;
+    height: 50px;
+}
+
+.btn-cadastro {
+    width: 30%;
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+    background-color: #dcbc81;
+    font-weight: bold;
+}
+
+input {
+    border: 1px dashed #ddd;
+    outline-offset: 10px;
+    margin: 10px;
+}
+
+.Nome {
+    width: 800px;
+}
+
+.Idade {
+    width: 5px;
+}    
+
+.Id {
+    width: 5px;
+}    
