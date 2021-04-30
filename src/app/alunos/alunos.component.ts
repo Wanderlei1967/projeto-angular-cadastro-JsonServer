@@ -1,3 +1,4 @@
+import { stringify } from '@angular/compiler/src/util';
 import { Component, OnInit } from '@angular/core';
 import { AlunosService } from '../alunos.service';
 import { AlunoModel } from './aluno.model';
@@ -12,6 +13,7 @@ export class AlunosComponent implements OnInit {
 
   aluno: AlunoModel = new AlunoModel();
   alunos: Array<any> = new Array();
+  AlunoModel: any;
 
   constructor(private alunosService: AlunosService) { }
 
@@ -31,13 +33,16 @@ export class AlunosComponent implements OnInit {
   }
 
   remover(id: number) {
-    this.alunosService.removerAluno(id).subscribe(aluno => {
-      this.aluno = new AlunoModel();
-      this.listarAlunos();
-    }, err =>{
-      console.log('Erro ao remover o aluno', err)
-    })
-
+    var nomealu = this.alunos.find((alunos) => alunos.id === id );
+    var resultado = confirm("Deseja excluir o aluno: " + nomealu.nome + " ?");
+    if (resultado == true) {
+      this.alunosService.removerAluno(id).subscribe(aluno => {
+        this.aluno = new AlunoModel();
+        this.listarAlunos();
+      }, err =>{
+        console.log('Erro ao remover o aluno', err)
+      })
+    }
   }
 
   cadastrar(){
@@ -60,4 +65,9 @@ export class AlunosComponent implements OnInit {
 
   }
 
+  popularInputs(id: any) {
+    var nomealu = this.alunos.find((alunos) => alunos.id === id );
+    this.aluno.nome = nomealu.nome;
+    this.aluno.idade   = nomealu.idade;  
+  }  
 }

@@ -1,8 +1,8 @@
 <h2>Sistema de Alunos</h2>
 <hr>
-<div style='padding:20px;width:98%;background:burlywood'>
+<div style='padding:20px;width:58%;background:burlywood; margin-left: 190px;'>
     <form>
-        <a>Nome: <input size='100' type="text" name="name"[(ngModel)]="aluno.nome"></a>
+        <a>Nome: <input size='110' type="text" name="name"[(ngModel)]="aluno.nome"></a>
         <a>Idade: <input size='5' type="text" name="idade"[(ngModel)]=aluno.idade></a>    
         <button type="button" (click)="cadastrar()">Cadastrar</button>   
     </form>
@@ -19,9 +19,11 @@
         <tr *ngFor="let aluno of alunos">
             <td style="text-align: center; vertical-align: middle;" class="Id">{{aluno.id}}</td>
             <td class="Nome">{{aluno.nome}}</td>
-            <td class="Idade">{{aluno.idade}}</td> 
-            <td><button (click)="atualizar(aluno.id)">Atualizar</button>
-                <button (click)="remover(aluno.id)">Remover</button>
+            <td style="text-align: center; vertical-align: middle;" class="Idade">{{aluno.idade}}</td> 
+            <td><button (click)="atualizar(aluno.id)">Salvar</button>
+                
+                <button (click)="remover(aluno.id)">Deletar</button>
+                <button (click)="popularInputs(aluno.id)">Selecionar</button>                
             </td>               
         </tr>
     </table>    
